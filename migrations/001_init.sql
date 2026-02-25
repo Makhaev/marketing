@@ -1,4 +1,3 @@
-
 -- USERS
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -30,11 +29,14 @@ CREATE TABLE store_products (
     product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
     price NUMERIC(10,2) NOT NULL,
     is_promo BOOLEAN DEFAULT FALSE,
-    updated_at TIMESTAMP DEFAULT NOW()
+    updated_at TIMESTAMP DEFAULT NOW(),
+    image_url TEXT
 );
 
+-- индекс на цену
 CREATE INDEX idx_product_price 
 ON store_products(product_id, price);
 
+-- уникальное ограничение
 ALTER TABLE store_products
 ADD CONSTRAINT unique_store_product UNIQUE (store_id, product_id);

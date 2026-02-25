@@ -3,15 +3,15 @@ version: '3.8'
 services:
   postgres:
     image: postgres:15
-    container_name: price_postgres
     environment:
-      POSTGRES_USER: user
+      POSTGRES_USER: marketing_user
       POSTGRES_PASSWORD: pass
       POSTGRES_DB: prices
     ports:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./db-init:/docker-entrypoint-initdb.d
 
 volumes:
   pgdata:

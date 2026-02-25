@@ -1,0 +1,245 @@
+{
+  "info": {
+    "name": "Marketing API",
+    "_postman_id": "marketing-api-collection",
+    "description": "Коллекция для тестирования API продуктов, магазинов и товаров в магазинах",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["products"]
+            }
+          }
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Коричневый сахар\",\n    \"category\": \"Продукты питания\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["products"]
+            }
+          }
+        },
+        {
+          "name": "Get Product by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/products/13",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["products","13"]
+            }
+          }
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Сахар белый\",\n    \"category\": \"Продукты питания\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/products/13",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["products","13"]
+            }
+          }
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/products/13",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["products","13"]
+            }
+          }
+        },
+        {
+          "name": "Get Product Prices",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/products/13/prices",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["products","13","prices"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Stores",
+      "item": [
+        {
+          "name": "Get All Stores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/stores",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["stores"]
+            }
+          }
+        },
+        {
+          "name": "Create Store",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Магнит\",\n    \"address\": \"ул. Ленина 10\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/stores",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["stores"]
+            }
+          }
+        },
+        {
+          "name": "Update Store",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Магнит Экспресс\",\n    \"address\": \"ул. Ленина 12\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/stores/6",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["stores","6"]
+            }
+          }
+        },
+        {
+          "name": "Delete Store",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/stores/6",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["stores","6"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "StoreProducts",
+      "item": [
+        {
+          "name": "Get All StoreProducts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/store-products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["store-products"]
+            }
+          }
+        },
+        {
+          "name": "Create StoreProduct",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"store_id\": 6,\n    \"product_id\": 13,\n    \"price\": 69,\n    \"is_promo\": true,\n    \"image_url\": \"https://example.com/sugar1.jpg\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/store-products",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["store-products"]
+            }
+          }
+        },
+        {
+          "name": "Update StoreProduct",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"store_id\": 6,\n    \"product_id\": 13,\n    \"price\": 79,\n    \"is_promo\": false,\n    \"image_url\": \"https://example.com/sugar1-updated.jpg\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/store-products/16",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["store-products","16"]
+            }
+          }
+        },
+        {
+          "name": "Delete StoreProduct",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/store-products/16",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["store-products","16"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
